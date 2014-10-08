@@ -1,25 +1,56 @@
 <fa-app class="full-screen">
-
-  <!-- Container modifier, which we're rotating over the y axis -->
-  <fa-modifier fa-origin="[.5, .5]" fa-rotate-y="rotateY.get()">
-
-    <!-- Front face -->
-    <fa-surface fa-size="[true, true]" fa-color="'rgb(255,255,250)'">
-      <img class="logo" src="images/famous-logo.svg" style="width: 200px; height: 200px;"/>
-    </fa-surface>
-
-    <!-- Back face:  same image, rotated pi radians -->
-    <fa-modifier fa-rotate-y="3.14159">
-      <fa-surface fa-size="[true, true]" fa-color="'rgb(255,255,250)'">
-        <img class="logo" src="images/famous-logo.svg" style="width: 200px; height: 200px;" />
-      </fa-surface>
+    <fa-modifier
+            fa-size="[wrap, cardHeight]"
+            fa-origin="[0.5, 0.5]"
+            fa-opacity=cardsOpacity
+            fa-scale=cardsScale.get()>
+        <fa-scroll-view fa-pipe-from="myEventHandler">
+            <fa-view ng-repeat="cardSummery in cards"
+                     fa-size="[undefined, 400]"
+                     fa-animate-enter="cardSummeryEnter(cardSummery, $done)"
+                     fa-animate-leave="cardSummeryLeave(cardSummery, $done)">
+                <fa-modifier fa-size="[wrap, 81]"
+                             fa-origin="[0.5, 0]"
+                             fa-translate="[0, 0, 1]"
+                             fa-scale=cardSummeryscale.get()
+                             fa-opacity=cardSummeryOpacity>
+                    <fa-surface class="{{'card-summery radius card-summery-' + $index}}"
+                                fa-size="[wrap, 74]"
+                                fa-pipe-to="myEventHandler"
+                                fa-click="goToCard($event)">
+                        <div class="card-summery-in">
+                            <img class="card-summery-img radius" src="{{'images/' + cardSummery.img}}">
+                            <div class="card-summery-con">
+                                <h4 class="title top margin-bot-5">{{cardSummery.title}}</h4>
+                                <p class="base-text">{{cardSummery.summery}}</p>
+                            </div>
+                        </div>
+                    </fa-surface>
+                </fa-modifier>
+            </fa-view>
+        </fa-scroll-view>
     </fa-modifier>
-
-  </fa-modifier>
-
-  <fa-modifier fa-origin="[.5, .9]" fa-size="[200, 100]">
-    <fa-surface>
-      <input style="width: 100%; text-align: center;" type="range" min="10" max="100" ng-model="spinner.speed" />
-    </fa-surface>
-  </fa-modifier>
+    <!-- Card -->
+    <fa-modifier fa-origin="[0.5, 0.5]"
+                 fa-size="[wrap, cardHeight]"
+                 fa-translate="[0, 0, 2]"
+                 fa-opacity=cardOpacity
+                 fa-scale=cardScale.get()>
+        <fa-surface class="card"
+                    fa-size="[wrap, cardHeight]">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title pull-left">{{cards[cardSummeryIndex].title}}</h3>
+                <fa-surface fa-click="goToCards()">
+                    <a class="btn btn-primary pull-right">
+                        <i class="fa fa-angle-left"></i>
+                        Back
+                    </a>
+                </fa-surface>
+            </div>
+            <div class="panel-body card-body">
+                <img class="card-img res-img" src="{{'images/' + cards[cardSummeryIndex].detailImg}}">
+                <p>{{cards[cardSummeryIndex].content}}</p>
+            </div>
+        </fa-surface>
+    </fa-modifier>
 </fa-app>

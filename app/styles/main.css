@@ -20,3 +20,115 @@ body {
     left: 0;
     right: 0;
 }
+
+.color-set-1 {
+    background-color: #E74C3C;
+    color: #fff;
+}
+
+.color-set-2 {
+    background-color: #40D47E;
+    color: #fff;
+}
+
+.color-set-3 {
+    background-color: #3D566E;
+    color: #fff;
+}
+
+.color-set-4 {
+    background-color: #A66BBE;
+    color: #fff;
+}
+
+.color-set-4 {
+    background-color: #95A5A6;
+    color: #fff;
+}
+
+/* Cards */
+.card-heading {
+    height: 45px;
+    line-height: 45px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 1px solid #ccc;
+    background-color: #F5F5F5;
+    font-size: 14px;
+}
+
+.card-heading-text {
+    padding: 0 10px;
+}
+
+.res-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-summery,
+.card {
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+.card-img {
+    margin-bottom: 7px;
+}
+
+.card-summery-in {
+    padding: 7px;
+}
+
+.card-summery-img {
+    float: left;
+    width: 60px;
+    height: 60px;
+    background-color: red;
+}
+
+.card-summery-con {
+    margin-left: 67px;
+}
+
+.main-text {
+    font-size: 14px;
+}
+
+.base-text {
+    font-size: 12px;
+}
+
+.bottom {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.top {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.title {
+    font-size: 16px;
+}
+
+.margin-bot-5 {
+    margin-bottom: 5px;
+}
+
+.radius-2x {
+    border-radius: 6px;
+}
+
+.radius {
+    border-radius: 3px;
+}
+
+.panel-body.card-body {
+    padding: 7px;
+}
+
+
+
+
